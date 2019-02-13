@@ -7,6 +7,8 @@
           <a class="p-2 text-dark" href="#">Pricing</a>
         </nav> --}}
         @if(auth()->check())
+    <span>{{ auth()->user()->name }}</span>        
+    {{-- ovo je da bi nam se pored logout dugmeta prilikom registracije pojavilo ime korisnika --}}
     <a class="btn btn-outline-primary" href="{{ route('logout')}}">Logout</a>
         @else
     <a class="btn btn-outline-primary" href="{{ route('show-register') }}">Sign up</a>

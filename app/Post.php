@@ -21,6 +21,6 @@ class Post extends Model
 
     public static function getPublishedPosts()
     {
-        return self::where('published', true)->get();
+        return self::where('published', false)->get();
     }
 }

@@ -11,4 +11,5 @@ class LoginController extends Controller
         auth()->logout(); 
         return redirect()->route('all-posts');    //u starom je posts.index
     }
+
 }
