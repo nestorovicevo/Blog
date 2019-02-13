@@ -15,12 +15,12 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email|unique:users, email',          //jer postoji pravilo koje se zove bas email / drugo je da bude email uniqe i koju tabelu treba da proverava users tabela kolona email
+            'email' => 'required|email|unique:users,email',          //jer postoji pravilo koje se zove bas email / drugo je da bude email uniqe i koju tabelu treba da proverava users tabela kolona email
             'name' => 'required',
             'password' => 'required|min:6'
         ]);
-            return User::create($request->only(['email', 'name', 'password']));
+         User::create($request->only(['email', 'name', 'password']));
 
-    
+         return redirect()->route('all-posts');
     }
 }
