@@ -9,7 +9,8 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view('auth.register');
+        return view('auth.register');   ///ova akcija sluzi za prikazivanje ovog fajla valjda
+    
     }
 
     public function store(Request $request)
