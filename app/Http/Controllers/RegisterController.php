@@ -26,7 +26,8 @@ class RegisterController extends Controller
 
         $data['password'] = bcrypt($data['password']);
 
-         User::create($data);
+        $user = User::create($data);
+        auth()->login($user);     ///ovako smo ulogovali korisnika pre nego sto smo uradili redirekciju
 
          return redirect()->route('all-posts');
     }
