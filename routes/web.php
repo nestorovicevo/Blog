@@ -27,7 +27,11 @@ Route::group(['middleware' => ['guest'] ], function() {
 Route::get('/logout', 'LoginController@logout')->name('logout');  
 
 
-
+// Route::group(['middleware' => ['auth'] ], function() {
+//     Route::get('/posts/create', ['as' => 'create-post', 'uses' => 'PostsController@create']);
+//     Route::post('/posts', ['as' => 'store-post', 'uses' => 'PostsController@store']);
+      
+// });                           OVO NISMO uradili ovako jer smo to odradili u konstruktoru u PostsControlleru, ali ovo je BOLJI PRINCIP
 
 
 

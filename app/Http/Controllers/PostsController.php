@@ -7,6 +7,11 @@ use \App\Post;
 
 class PostsController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth', ['only' => ['create', 'store']]);
+    }
+
     public function index()
     {
         $posts = Post::getPublishedPosts();
@@ -27,8 +32,13 @@ class PostsController extends Controller
     public function store()
     {
         $this->validate(request(), Post::STORE_RULES);
-
-        $post = Post::create(request()->all());
+        
+        $post = Post::create(
+            array_merge(
+                request()->all(),
+                ['user_id' => auth()->user()->id]
+            )
+        );
 
         return redirect()->route('all-posts');
     }
