@@ -17,8 +17,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if (Auth::guard($guard)->check()) {      /// (Auth::guard($guard)->check() je isto sto i auth()->check();!!!!!
+            return redirect()->route('all-posts');
         }
 
         return $next($request);
