@@ -33,6 +33,10 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
       
 // });                           OVO NISMO uradili ovako jer smo to odradili u konstruktoru u PostsControlleru, ali ovo je BOLJI PRINCIP
 
+Route::group(['middleware' => ['auth'] ], function() {
+    
+    Route::get('/my-posts', 'UserPostsController@index')->name('my-posts'); 
+});
 
 
 Route::get('/posts', ['as' => 'all-posts', 'uses' => 'PostsController@index']);
