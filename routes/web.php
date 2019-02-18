@@ -17,7 +17,7 @@ use \App\Http\Controllers\CommentsController;
 Route::group(['middleware' => ['guest'] ], function() {
     
     Route::get('/register', ['as' => 'show-register', 'uses' => 'RegisterController@create']);   /// isto je i Route::get('/register', 'RegisterController@create')->name('show-register');
-    Route::post('/register', 'RegisterController@store')->name('register');                      /// isto je i Route::get('/register', 'RegisterController@create')->name();
+    Route::post('/register', 'RegisterController@store')->name('register')->middleware('age');                      /// isto je i Route::get('/register', 'RegisterController@create')->name();
     Route::get('/login', 'LoginController@create')->name('show-login');  
     Route::post('/login', 'LoginController@store')->name('login');  
 });

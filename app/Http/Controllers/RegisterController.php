@@ -18,7 +18,8 @@ class RegisterController extends Controller
         $this->validate($request, [
             'email' => 'required|email|unique:users,email',          //jer postoji pravilo koje se zove bas email / drugo je da bude email uniqe i koju tabelu treba da proverava users tabela kolona email
             'name' => 'required',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'age' => 'required|integer|min:1'                  //1 kao broj godina kad integer stoji ispired
         ]);
 
             //// alternative \Hash::make)('')
