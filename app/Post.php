@@ -24,8 +24,8 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');   //u zagradu smo mogli da stavimo i 'user'
     }
 
-    public static function getPublishedPosts()
+    public static function publishedPosts()
     {
-        return self::where('published', false)->get();
+        return self::where('published', false);
     }
 }
