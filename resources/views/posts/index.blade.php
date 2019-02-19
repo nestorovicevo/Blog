@@ -18,4 +18,7 @@
             @endif
         @endforeach
     </ul>
+
+
+    {{ $posts->links() }}
 @endsection
