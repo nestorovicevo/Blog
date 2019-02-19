@@ -42,4 +42,10 @@ class PostsController extends Controller
 
         return redirect()->route('all-posts');
     }
+
+    public function destroy($id){
+       $post = Post::findOrfail($id);
+       $post->delete();
+       return redirect()->back();
+    }
 }
