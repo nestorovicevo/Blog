@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call(UsersSeeder::class);      //////ne moramo use jer imaju isti namespace, koji ovde nije naveden i to je ok
+        $this->call(PostsSeeder::class);          ///ova funkcija uvek pokrece ovu run metodu u drugim userima 
     }
 }

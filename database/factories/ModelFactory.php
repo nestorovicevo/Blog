@@ -22,3 +22,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Post::class, function(Faker\Generator $faker){       //uvek je drugi parametar callback i uvek vraca asocijativni niz gde je key naziv atributa
+
+    return[
+        "title" => $faker->realText(150), 
+        "body" => implode(' ', $faker->sentences(15)),
+    ];
+});   
+
+    
