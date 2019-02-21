@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Post;
+use \App\Tag;
+
 
 class PostsController extends Controller
 {
@@ -26,12 +28,17 @@ class PostsController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        $tags=Tag::all();
+
+        return view('posts.create', compact('tags'));
     }
 
     public function store()
     {
-        $this->validate(request(), Post::STORE_RULES);
+        $this->validate(request(), [
+        'title' => 'required',
+        'body' => 'required',
+        'tags' => 'required|array']    );
         
         $post = Post::create(
             array_merge(
@@ -39,6 +46,8 @@ class PostsController extends Controller
                 ['user_id' => auth()->user()->id]
             )
         );
+
+        $post->tags()->attach(request('tags'));
 
         return redirect()->route('all-posts');
     }
@@ -48,4 +57,5 @@ class PostsController extends Controller
        $post->delete();
        return redirect()->back();
     }
+
 }

@@ -23,6 +23,16 @@
             @include('posts.partials.error-message', ['fieldTitle' => 'body'])
         </div>
 
+        @if(count($tags))
+        <div class="form-group">
+            <label for="tag[]">Tags</label><br>
+            
+            @foreach ($tags as $tag)
+                <input type="checkbox" id="tag" name="tag[]" value="{$tag->id}"/>{{$tag->name}}
+            @endforeach
+        </div>
+        @endif
+
         <div class="form-group">
             <label for="published">Publish?</label>
             <input type="checkbox" class="form-control" id="published" name="published" value="1"/>

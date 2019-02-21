@@ -10,6 +10,11 @@
                 <h1 class="blog-title">Laravel blog</h1>
             </div>
         </div>
+
+        @foreach($tags as $tag)
+             <a href="/posts/tags/{{$tag->name}}">{{$tag->name}}</a>
+        @endforeach
+
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 blog-main">
