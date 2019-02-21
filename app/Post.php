@@ -11,7 +11,7 @@ class Post extends Model
 
     const STORE_RULES = [
         'title' => 'required',
-        'body' => 'required | min:15'
+        'body' => 'required | min:15',
     ];
 
     public function comments()
