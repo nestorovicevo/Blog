@@ -26,5 +26,5 @@
     </ul>
 
 
-    {{-- {{ $posts->links() }}to je za paginaciju --}}
+    {{ $posts->links() }}
 @endsection
