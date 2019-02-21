@@ -22,6 +22,8 @@ Route::group(['middleware' => ['guest'] ], function() {
     Route::post('/login', 'LoginController@store')->name('login');  
 });
 
+Route::get('/posts/tags/{tag}', 'TagsController@index');
+
 
 
 Route::get('/logout', 'LoginController@logout')->name('logout');  
