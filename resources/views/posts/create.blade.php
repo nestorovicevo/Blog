@@ -25,10 +25,10 @@
 
         @if(count($tags))
         <div class="form-group">
-            <label for="tag[]">Tags</label><br>
+            <label for="tags[]">Tags</label><br>
             
             @foreach ($tags as $tag)
-                <input type="checkbox" id="tag" name="tag[]" value="{$tag->id}"/>{{$tag->name}}
+                <input type="checkbox" id="tag" name="tags[]" value="{{$tag->id}}"/>{{$tag->name}}
             @endforeach
         </div>
         @endif

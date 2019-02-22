@@ -42,11 +42,11 @@ class PostsController extends Controller
         
         $post = Post::create(
             array_merge(
-                request()->all(),
+                request()->only('title', 'body'),
                 ['user_id' => auth()->user()->id]
             )
         );
-
+        
         $post->tags()->attach(request('tags'));
 
         return redirect()->route('all-posts');
